@@ -46,3 +46,19 @@ def get_system_prompt(task_type: str) -> str:
         'image': "You are a creative assistant that generates professional images for marketing materials."
     }
     return system_prompts.get(task_type, "You are a helpful assistant.")
+
+def get_image_generation_prompt(flow_name: str, summary: str) -> str:
+    """Generate prompt for DALL-E image generation"""
+    # Keep summary brief (first 200 chars)
+    brief_summary = summary[:200] + "..." if len(summary) > 200 else summary
+    
+    return f"""
+A modern, professional illustration representing: {flow_name}
+
+Context: {brief_summary}
+
+Style: Clean, minimalist, vibrant gradient colors, isometric perspective.
+Digital/tech aesthetic with abstract shapes and flowing elements.
+Professional but engaging and eye-catching for social media.
+NO text, letters, or words in the image.
+"""

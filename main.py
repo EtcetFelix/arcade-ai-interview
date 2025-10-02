@@ -22,7 +22,10 @@ def main():
     print("\n" + "="*50 + "\n")
     
     # Create social media image
-
+    print("Generating social media image...")
+    image_path = create_social_media_image(flow_name, summary)
+    print(f"✅ Image created: {image_path}")
+    print("\n" + "="*50 + "\n")
     
     # Generate report
     

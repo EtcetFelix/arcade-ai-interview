@@ -1,9 +1,10 @@
 import os
 import json
+import requests
 from dotenv import load_dotenv
 from openai import OpenAI
 from utils import extract_user_interactions, get_flow_name
-from prompts import get_interactions_prompt, get_system_prompt, get_summary_prompt
+from prompts import get_interactions_prompt, get_system_prompt, get_summary_prompt, get_image_generation_prompt
 
 load_dotenv()
 
@@ -53,6 +54,32 @@ def generate_human_friendly_summary(flow_name: str, interactions: list | str) ->
     
     return result
 
-def create_social_media_image() -> None:
+def create_social_media_image(flow_name: str, summary: str, output_path: str = "social_media_image.png") -> str:
     """Create a Social Media Image: Generate a creative image suitable for sharing on social platforms"""
-    pass
+    
+    prompt = get_image_generation_prompt(flow_name, summary)
+    
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=prompt,
+        size="1792x1024",
+        quality="standard", 
+        n=1
+    )
+    
+    if not response.data or len(response.data) == 0:
+        raise ValueError("OpenAI API returned no image data")
+    
+    image_url = response.data[0].url
+    
+    if image_url is None:
+        raise ValueError("OpenAI API returned None for image URL")
+    
+    # Download the image
+    image_response = requests.get(image_url)
+    image_response.raise_for_status()
+    with open(output_path, 'wb') as f:
+        f.write(image_response.content)
+    
+    print(f"Image saved to: {output_path}")
+    return output_path
