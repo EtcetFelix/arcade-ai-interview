@@ -18,3 +18,12 @@ Example format:
 2. Searched for "protein powder"
 3. Selected the Leanbakers protein powder from results
 """
+
+def get_system_prompt(task_type: str) -> str:
+    """Get system prompt based on task type"""
+    system_prompts = {
+        'interactions': "You are a helpful assistant that analyzes user interactions and describes them clearly.",
+        'summary': "You are a helpful assistant that creates clear, engaging summaries of user workflows.",
+        'image': "You are a creative assistant that generates professional images for marketing materials."
+    }
+    return system_prompts.get(task_type, "You are a helpful assistant.")
