@@ -35,7 +35,7 @@ def identify_user_interactions(flow_data: dict) -> str:
 def generate_human_friendly_summary(flow_name: str, interactions: list | str) -> str:
     """Generate Human-Friendly Summary: Create a clear, readable summary of what the user was trying to accomplish"""
     if isinstance(interactions, list):
-        interactions = interactions = json.dumps(interactions, indent=2)
+        interactions = json.dumps(interactions, indent=2)
     prompt = get_summary_prompt(flow_name, interactions)
     
     response = client.chat.completions.create(
