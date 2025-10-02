@@ -7,6 +7,10 @@ def load_flow_data(filepath: str = flow_file_path) -> Dict[str, Any]:
     with open(filepath, 'r') as f:
         return json.load(f)
     
+def get_flow_name(flow_data: Dict[str, Any]) -> str:
+    """Get the flow name from flow data"""
+    return flow_data.get('name', 'Untitled Flow')
+
 def extract_user_interactions(flow_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Extract user interactions from flow data"""
     interactions = []

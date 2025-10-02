@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from utils import load_flow_data, extract_user_interactions
+from utils import load_flow_data, extract_user_interactions, get_flow_name
 from prompts import get_interactions_prompt
 
 load_dotenv()
@@ -12,7 +12,9 @@ OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 def identify_user_interactions() -> str:
     flow_data = load_flow_data()
     interactions = extract_user_interactions(flow_data)
-    prompt = get_interactions_prompt(flow_data.get('name', 'Unknown Flow'), interactions)
+    flow_name = get_flow_name(flow_data)
+    prompt = get_interactions_prompt(flow_name, interactions)
+    
 
     pass
 # Generate Human-Friendly Summary: Create a clear, readable summary of what the user was trying to accomplish
