@@ -1,18 +1,22 @@
-from utils import load_flow_data, get_flow_name
+from utils import load_flow_data, get_flow_name, extract_user_interactions
 from steps import identify_user_interactions, generate_human_friendly_summary, create_social_media_image
 
 def main():
     flow_data = load_flow_data()
     flow_name = get_flow_name(flow_data)
+
+    # NOTE: Using raw interaction data for summary generation based on eval results
+    # Raw data provides better completeness and accuracy than a chained llm call
+    raw_interactions = extract_user_interactions(flow_data)
     
-    # Identify user interactions
-    interactions = identify_user_interactions(flow_data)
+    # Identify user interactions (for display purposes)
+    interactions_text = identify_user_interactions(flow_data)
     print("User Interactions:")
-    print(interactions)
+    print(interactions_text)
     print("\n" + "="*50 + "\n")
     
-    # Generate summary
-    summary = generate_human_friendly_summary(flow_name, interactions)
+    # Generate summary using raw data
+    summary = generate_human_friendly_summary(flow_name, raw_interactions)
     print("Summary:")
     print(summary)
     print("\n" + "="*50 + "\n")
