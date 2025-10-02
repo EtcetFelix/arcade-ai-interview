@@ -15,3 +15,9 @@ Obviously, with more flow data, different requirements, and more evaluations, it
 
 With that said, if I were to dedicate more time to this, I would explore how we could play with the timing of the data to show the Arcade user meaningful summaries of where their users spent more time.
 It could lead to uncovering user friction points or perhaps spark ideas introducing different product offerings in key hotspot areas, therefore potentially increasing Arcade user ROI.
+
+
+After submitting, realized I forgot to showcase implementation of tests, so added that after.
+
+I implemented the project as a flat file structure for the sake of time, but I'd have a proper separation between tests and src code.
+Additionally, I would normally use poetry as a dependency manager as opposed to setuptools, so I'd also migrate to that if I were to dedicate more time to this project.
