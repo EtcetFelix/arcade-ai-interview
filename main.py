@@ -1,4 +1,4 @@
-from utils import load_flow_data, get_flow_name, extract_user_interactions
+from utils import load_flow_data, get_flow_name, extract_user_interactions, save_markdown_report
 from steps import identify_user_interactions, generate_human_friendly_summary, create_social_media_image
 
 def main():
@@ -28,6 +28,9 @@ def main():
     print("\n" + "="*50 + "\n")
     
     # Generate report
+    print("Generating markdown report...")
+    save_markdown_report(interactions_text, summary, image_path)
+    
     
     print("\n✅ All done!")
 

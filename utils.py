@@ -27,3 +27,29 @@ def extract_user_interactions(flow_data: Dict[str, Any]) -> List[Dict[str, Any]]
             interactions.append(interaction)
     
     return interactions
+
+def save_markdown_report(interactions: str, summary: str, image_path: str, output_path: str = 'REPORT.md') -> None:
+    """Generate and save the final markdown report"""
+    
+    markdown = f"""# Arcade Flow Analysis Report
+
+## User Interactions
+
+{interactions}
+
+## Summary
+
+{summary}
+
+## Social Media Image
+
+![Social Media Image]({image_path})
+
+---
+*Generated using OpenAI API*
+"""
+    
+    with open(output_path, 'w') as f:
+        f.write(markdown)
+    
+    print(f"Report saved to: {output_path}")
