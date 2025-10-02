@@ -1,0 +1,9 @@
+I would personally opt to use a framework in production such as langgraph platform (for langsmith) which, most importantly for a task like this, allows data collection, and evals directly on that data, at scale.
+Langsmith would help guide the architecture and prompts to provide better, more accurate results as opposed to writing every eval by hand in production code, or worse, no evals and just vibing it out.
+
+Furthermore, writing the llm chains in langgraph would also be helpful in providing more flexibility and observability on how the LLM chain is architected, as opposed to writing everything by hand in functions such as done here.
+I.e. defining the llm chain as an explicit state machine (i.e. langgraph graph).
+
+However, obviously, for the sake of time and to concicely show capabilities, I'm doing most of everything by free code here without a big framework.
+
+
