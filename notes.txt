@@ -1,0 +1,17 @@
+I would personally opt to use a framework in production such as langgraph platform (for langsmith) which, most importantly for a task like this, allows data collection, and evals directly on that data, at scale.
+Langsmith would help guide the architecture and prompts to provide better, more accurate results as opposed to writing every eval by hand in production code, or worse, no evals and just vibing it out.
+
+Furthermore, writing the llm chains in langgraph would also be helpful in providing more flexibility and observability on how the LLM chain is architected, as opposed to writing everything by hand in functions such as done here.
+I.e. defining the llm chain as an explicit state machine (i.e. langgraph graph).
+
+However, obviously, for the sake of time and to concicely show capabilities, I'm doing most of everything by free code here without a framework.
+
+
+My first thoughts when starting were related to understanding the structure of the data. 
+I wasn't immediately sure what data/context would be most useful for the LLM so I began with just feeding the image steps as an MVP, planning to later add more or different data if needed.
+Once I finished the report section, it turned out, it gave pretty good results with that alone.
+It's likely we wouldn't want to add more input data as it would lead to higher token costs, while not contributing to any more useful results than what we currently get with just the data from the image steps.
+Obviously, with more flow data, different requirements, and more evaluations, it could turn out that the tradeoff could be worth it.
+
+With that said, if I were to dedicate more time to this, I would explore how we could play with the timing of the data to show the Arcade user meaningful summaries of where their users spent more time.
+It could lead to uncovering user friction points or perhaps spark ideas introducing different product offerings in key hotspot areas, therefore potentially increasing Arcade user ROI.
