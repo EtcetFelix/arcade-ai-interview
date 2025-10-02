@@ -9,10 +9,8 @@ This solution analyzes Arcade flow recordings and generates a report using OpenA
 
 ## Setup
 
-1. **Install dependencies**:
+### 1. Create and activate virtual environment
 ```bash
-pip install -r requirements.txt
-
 # Create virtual environment
 python -m venv venv
 
@@ -23,18 +21,28 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-2. **Configure API Key**:
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure API Key:
 ```bash
 cp .env.example .env
 # Add your OpenAI API key to .env
 ```
 
-3. **Run the analyzer**:
+### 4. Run the analyzer:
+```bash
 python main.py
+```
+
+## Output Files
+* REPORT.md: Complete analysis with interactions, summary, and embedded image
+* social_media_image.png: AI-generated social media image (1792x1024)
 
 ## Notes
-Some of my thoughts while writing this project are written in notes.txt
-
+Development notes and thought process documented in notes.txt
 
 # Original Challenge Instructions 
 
