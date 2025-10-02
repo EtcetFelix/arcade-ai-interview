@@ -37,6 +37,11 @@ cp .env.example .env
 python main.py
 ```
 
+### 5. Testing:
+```bash
+pytest test_flow_analyzer.py -v
+```
+
 ## Output Files
 * REPORT.md: Complete analysis with interactions, summary, and embedded image
 * social_media_image.png: AI-generated social media image (1792x1024)
