@@ -1,4 +1,44 @@
-# Arcade AI Interview Challenge
+# Arcade Flow Analyzer - Solution
+
+**Author**: Alan Bohannon  
+**Date**: October 2, 2025
+
+## Solution Overview
+
+This solution analyzes Arcade flow recordings and generates a report using OpenAI's GPT-4o-mini for text analysis and DALL-E 3 for image generation.
+
+## Setup
+
+1. **Install dependencies**:
+```bash
+pip install -r requirements.txt
+
+# Create virtual environment
+python -m venv venv
+
+# Activate on Windows
+venv\Scripts\activate
+
+# Activate on macOS/Linux
+source venv/bin/activate
+```
+
+2. **Configure API Key**:
+```bash
+cp .env.example .env
+# Add your OpenAI API key to .env
+```
+
+3. **Run the analyzer**:
+python main.py
+
+## Notes
+Some of my thoughts while writing this project are written in notes.txt
+
+
+# Original Challenge Instructions 
+
+## Arcade AI Interview Challenge
 
 Welcome to the Arcade AI Interview Challenge! This project tests your ability to work with AI multimodal APIs, and be creative with your problem solving
 
