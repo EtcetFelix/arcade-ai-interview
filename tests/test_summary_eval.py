@@ -2,8 +2,8 @@ import json
 from typing import List, Dict
 from datetime import datetime
 from openai import OpenAI
-from steps import identify_user_interactions, generate_human_friendly_summary
-from utils import extract_user_interactions, get_flow_name, load_flow_data
+from src.steps import identify_user_interactions, generate_human_friendly_summary
+from src.utils import extract_user_interactions, get_flow_name, load_flow_data
 
 client = OpenAI()
 

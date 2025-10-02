@@ -1,7 +1,7 @@
 import pytest
 import os
-from utils import load_flow_data, extract_user_interactions, get_flow_name
-from steps import identify_user_interactions, generate_human_friendly_summary
+from src.utils import load_flow_data, extract_user_interactions, get_flow_name
+from src.steps import identify_user_interactions, generate_human_friendly_summary
 
 @pytest.fixture
 def flow_data():
