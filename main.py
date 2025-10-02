@@ -1,5 +1,5 @@
-from utils import load_flow_data, get_flow_name, extract_user_interactions, save_markdown_report
-from steps import identify_user_interactions, generate_human_friendly_summary, create_social_media_image
+from src.utils import load_flow_data, get_flow_name, extract_user_interactions, save_markdown_report
+from src.steps import identify_user_interactions, generate_human_friendly_summary, create_social_media_image
 
 def main():
     flow_data = load_flow_data()

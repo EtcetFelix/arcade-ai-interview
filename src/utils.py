@@ -1,6 +1,6 @@
 import json
 from typing import Dict, List, Any
-from constants import flow_file_path
+from src.constants import flow_file_path, output_dir
 
 def load_flow_data(filepath: str = flow_file_path) -> Dict[str, Any]:
     """Load the flow file"""
@@ -28,7 +28,7 @@ def extract_user_interactions(flow_data: Dict[str, Any]) -> List[Dict[str, Any]]
     
     return interactions
 
-def save_markdown_report(interactions: str, summary: str, image_path: str, output_path: str = 'REPORT.md') -> None:
+def save_markdown_report(interactions: str, summary: str, image_path: str, output_path: str = f'{output_dir}/REPORT.md') -> None:
     """Generate and save the final markdown report"""
     
     markdown = f"""# Arcade Flow Analysis Report

@@ -39,7 +39,7 @@ python main.py
 
 ### 5. Testing:
 ```bash
-pytest test_flow_analyzer.py -v
+pytest tests/test_flow_analyzer.py -v
 ```
 
 ## Output Files

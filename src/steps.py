@@ -3,8 +3,9 @@ import json
 import requests
 from dotenv import load_dotenv
 from openai import OpenAI
-from utils import extract_user_interactions, get_flow_name
-from prompts import get_interactions_prompt, get_system_prompt, get_summary_prompt, get_image_generation_prompt
+from src.utils import extract_user_interactions, get_flow_name
+from src.prompts import get_interactions_prompt, get_system_prompt, get_summary_prompt, get_image_generation_prompt
+from src.constants import output_dir
 
 load_dotenv()
 
@@ -54,7 +55,7 @@ def generate_human_friendly_summary(flow_name: str, interactions: list | str) ->
     
     return result
 
-def create_social_media_image(flow_name: str, summary: str, output_path: str = "social_media_image.png") -> str:
+def create_social_media_image(flow_name: str, summary: str, output_path: str = f"{output_dir}/social_media_image.png") -> str:
     """Create a Social Media Image: Generate a creative image suitable for sharing on social platforms"""
     
     prompt = get_image_generation_prompt(flow_name, summary)
