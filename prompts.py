@@ -19,6 +19,25 @@ Example format:
 3. Selected the Leanbakers protein powder from results
 """
 
+def get_summary_prompt(flow_name: str, interactions: str) -> str:
+    """Generate prompt for creating a human-friendly summary"""
+    return f"""
+Create a clear, engaging summary of what the user accomplished in this workflow.
+
+Flow Title: {flow_name}
+
+User Actions:
+{interactions}
+
+Write a 2-3 paragraph summary that:
+- Explains the overall goal
+- Highlights key steps
+- Focuses on the outcome
+- Uses friendly, accessible language
+
+Write in past tense as if describing what happened.
+"""
+
 def get_system_prompt(task_type: str) -> str:
     """Get system prompt based on task type"""
     system_prompts = {
