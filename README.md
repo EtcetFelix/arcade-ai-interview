@@ -41,6 +41,9 @@ python main.py
 * REPORT.md: Complete analysis with interactions, summary, and embedded image
 * social_media_image.png: AI-generated social media image (1792x1024)
 
+Bonus:
+* EVAL_RESULTS.md: Example output of an eval to determine if a chained LLM call vs raw data is better to generate the summary.
+
 ## Notes
 Development notes and thought process documented in notes.txt
 
